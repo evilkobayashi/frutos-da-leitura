@@ -1,0 +1,19 @@
+{
+  "name": "frutos-da-leitura",
+  "version": "1.0.0",
+  "description": "Vitrine Virtual e Portfólio Interativo do Projeto Pedagógico 'Frutos da Leitura' - Feira de Ciências PTL Queimados 2026",
+  "scripts": {
+    "start": "npx serve . -p 3000",
+    "serve": "python -m http.server 3000"
+  },
+  "keywords": [
+    "feira-de-ciencias",
+    "queimados",
+    "ptl",
+    "educacao",
+    "literatura",
+    "protagonismo-juvenil"
+  ],
+  "author": "Secretaria de Educação de Queimados",
+  "license": "MIT"
+}

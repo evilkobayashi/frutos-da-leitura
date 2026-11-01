@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frutos da Leitura | Portfólio Digital & Árvore Interativa (Etapa 3) - PTL Queimados</title>
+  
+  <meta name="description" content="Etapa 3 do Projeto Pedagógico: Portfólio Digital e Árvore Interativa das produções da disciplina PTL no Município de Queimados.">
+  <meta name="theme-color" content="#059669">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Canvas Confetti para celebrações nos quizzes -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <!-- Estilos customizados e animações da árvore -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen transition-colors duration-300 flex flex-col selection:bg-emerald-500 selection:text-white relative overflow-x-hidden">
+
+  <!-- Folhas Flutuantes Decorativas no Fundo -->
+  <div id="leaves-container" class="fixed inset-0 pointer-events-none overflow-hidden z-0"></div>
+
+  <!-- ==========================================================================
+       BARRA DE NAVEGAÇÃO & ABAS DA ETAPA 3
+       ========================================================================== -->
+  <header class="sticky top-0 z-40 bg-white/90 dark:bg-slate-950/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Topo: Título da Escola e Botão Modo Escuro -->
+      <div class="h-16 flex items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800/80">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center text-white shadow-md shadow-emerald-600/20">
+            <span class="text-xl">🌳</span>
+          </div>
+          <div>
+            <span class="block text-base sm:text-lg font-black tracking-tight text-slate-900 dark:text-white">
+              Frutos da Leitura
+            </span>
+            <span class="block text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 -mt-0.5">
+              Portfólio Digital • Etapa 3 (A Vitrine Virtual) • PTL Queimados
+            </span>
+          </div>
+        </div>
+
+        <!-- Botão Alternar Tema Escuro / Claro -->
+        <button 
+          id="theme-toggle-btn"
+          onclick="document.documentElement.classList.toggle('dark')"
+          class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center justify-center hover:bg-slate-200 dark:hover:bg-slate-700 transition cursor-pointer"
+          title="Alternar Modo Escuro / Claro"
+        >
+          <svg class="w-4 h-4 hidden dark:block text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          <svg class="w-4 h-4 block dark:hidden text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        </button>
+      </div>
+
+      <!-- Barra de Abas Fixa (Estrutura Exata da Etapa 3) -->
+      <nav class="flex items-center overflow-x-auto py-2.5 gap-2 scrollbar-none" id="main-nav-tabs">
+        <button 
+          data-tab-target="home"
+          class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all shrink-0 cursor-pointer flex items-center gap-2 bg-emerald-600 text-white shadow-md"
+        >
+          <span>🌳</span>
+          <span>Página Inicial & Árvore</span>
+        </button>
+
+        <button 
+          data-tab-target="ano6"
+          class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all shrink-0 cursor-pointer flex items-center gap-2"
+        >
+          <span>🍏</span>
+          <span>6º Ano: Biografias & Entrevistas</span>
+        </button>
+
+        <button 
+          data-tab-target="ano7"
+          class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all shrink-0 cursor-pointer flex items-center gap-2"
+        >
+          <span>🍊</span>
+          <span>7º Ano: Reportagens</span>
+        </button>
+
+        <button 
+          data-tab-target="ano8"
+          class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all shrink-0 cursor-pointer flex items-center gap-2"
+        >
+          <span>🍇</span>
+          <span>8º Ano: Crônicas & Fábulas</span>
+        </button>
+
+        <button 
+          data-tab-target="ludico"
+          class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all shrink-0 cursor-pointer flex items-center gap-2"
+        >
+          <span>🎮</span>
+          <span>Espaço Lúdico (Jogos)</span>
+        </button>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       CONTEÚDO DAS ABAS (ETAPA 3)
+       ========================================================================== -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 relative z-10">
+
+    <!-- ------------------------------------------------------------------------
+         ABA 1: PÁGINA INICIAL (Apresentação, Tema Municipal & Árvore Interativa)
+         ------------------------------------------------------------------------ -->
+    <section id="tab-home" class="animate-fade-in space-y-12">
+      
+      <!-- Banner de Apresentação e Tema Municipal -->
+      <div class="relative rounded-3xl overflow-hidden bg-gradient-to-br from-emerald-900 via-emerald-800 to-teal-900 text-white p-8 sm:p-12 shadow-2xl">
+        <div class="relative z-10 max-w-3xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-700/60 border border-emerald-500/40 text-emerald-200 text-xs font-bold uppercase tracking-wider mb-4">
+            <span>Rede Municipal de Queimados</span> • <span>Disciplina PTL 2026</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl font-black tracking-tight leading-tight mb-4">
+            Frutos da Leitura: <br>
+            <span class="text-emerald-300">Da Raiz escrita à Árvore digital</span>
+          </h1>
+
+          <p class="text-emerald-100/90 text-sm sm:text-base leading-relaxed mb-6">
+            Vitrine Virtual e Portfólio Digital da nossa Mostra Cultural. Os textos produzidos pelos estudantes deixam de ser apenas uma tarefa avaliativa para se tornarem o fruto visível de um processo contínuo de letramento digital e literário.
+          </p>
+
+          <!-- Lema Oficial de Queimados -->
+          <div class="p-4 sm:p-5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 mb-6">
+            <p class="text-base sm:text-lg font-semibold italic text-emerald-100">
+              “Árvore: afeto que aproxima, tecnologia que ensina, educação que transforma”
+            </p>
+            <span class="block text-xs font-bold text-emerald-300 uppercase tracking-wider mt-1">
+              Alinhamento com o Tema Municipal de Queimados • Parceria com a Plataforma Árvore
+            </span>
+          </div>
+        </div>
+
+        <div class="absolute -right-10 -bottom-10 w-96 h-96 rounded-full bg-emerald-500/10 blur-3xl pointer-events-none"></div>
+      </div>
+
+      <!-- ====================================================================
+           A GRANDE ÁRVORE DO CONHECIMENTO INTERATIVA COM FRUTOS CLICÁVEIS
+           ==================================================================== -->
+      <div class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-3xl p-6 sm:p-10 shadow-2xl border border-emerald-100 dark:border-slate-800">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 pb-6 border-b border-slate-100 dark:border-slate-800">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 mb-2">
+              <span>Metáfora Central</span> • <span>Interatividade na Vitrine</span>
+            </div>
+            <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">
+              A Árvore do Conhecimento
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 max-w-2xl">
+              Toque ou clique em qualquer um dos <strong>frutos coloridos</strong> nos galhos para colher e assistir ao vídeo/trabalho produzido pelos alunos das turmas 601 a 802!
+            </p>
+          </div>
+
+          <!-- Filtro de Frutos na Árvore -->
+          <div class="flex flex-wrap items-center gap-1.5 p-1 bg-slate-100 dark:bg-slate-800 rounded-2xl">
+            <button 
+              onclick="window.app.filterTreeFruits('all')" 
+              data-filter="all"
+              class="tree-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-600 text-white shadow-sm transition cursor-pointer"
+            >
+              Todos (11)
+            </button>
+            <button 
+              onclick="window.app.filterTreeFruits('6º Ano')" 
+              data-filter="6º Ano"
+              class="tree-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 transition cursor-pointer"
+            >
+              🍏 6º Ano
+            </button>
+            <button 
+              onclick="window.app.filterTreeFruits('7º Ano')" 
+              data-filter="7º Ano"
+              class="tree-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 transition cursor-pointer"
+            >
+              🍊 7º Ano
+            </button>
+            <button 
+              onclick="window.app.filterTreeFruits('8º Ano')" 
+              data-filter="8º Ano"
+              class="tree-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 transition cursor-pointer"
+            >
+              🍇 8º Ano
+            </button>
+          </div>
+        </div>
+
+        <!-- Canvas da Árvore SVG com Frutos Pendurados Clicáveis -->
+        <div class="flex items-center justify-center p-2 sm:p-4 bg-gradient-to-b from-emerald-50/30 to-transparent dark:from-emerald-950/20 rounded-2xl border border-emerald-100/60 dark:border-slate-800">
+          <div id="interactive-tree-canvas" class="w-full max-w-4xl"></div>
+        </div>
+
+        <!-- Legenda Pedagógica dos Frutos -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8 pt-6 border-t border-slate-100 dark:border-slate-800 text-xs">
+          <div class="flex items-center gap-3 p-3 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-800/60">
+            <span class="w-4 h-4 rounded-full bg-emerald-500 shrink-0 shadow-sm"></span>
+            <div>
+              <span class="font-extrabold text-slate-800 dark:text-white block">Frutos Verdes: 6º Ano</span>
+              <span class="text-slate-500">Biografias e Entrevistas (5 trabalhos)</span>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3 p-3 rounded-2xl bg-amber-50/60 dark:bg-amber-950/30 border border-amber-100 dark:border-amber-800/60">
+            <span class="w-4 h-4 rounded-full bg-amber-500 shrink-0 shadow-sm"></span>
+            <div>
+              <span class="font-extrabold text-slate-800 dark:text-white block">Frutos Dourados: 7º Ano</span>
+              <span class="text-slate-500">Reportagens & Telejornais (2 trabalhos)</span>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3 p-3 rounded-2xl bg-purple-50/60 dark:bg-purple-950/30 border border-purple-100 dark:border-purple-800/60">
+            <span class="w-4 h-4 rounded-full bg-purple-500 shrink-0 shadow-sm"></span>
+            <div>
+              <span class="font-extrabold text-slate-800 dark:text-white block">Frutos Violetas: 8º Ano</span>
+              <span class="text-slate-500">Crônicas & Fábulas Animadas (4 trabalhos)</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Navegação Rápida para as Abas -->
+      <div>
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4">
+          Ou explore pelas Abas Curriculares:
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- 6º Ano -->
+          <div 
+            onclick="window.app.switchTab('ano6')"
+            class="bg-white dark:bg-slate-900 rounded-3xl p-6 border-2 border-emerald-200 dark:border-emerald-900/60 shadow-md hover:shadow-xl hover:border-emerald-500 transition-all cursor-pointer group flex flex-col justify-between"
+          >
+            <div>
+              <span class="text-3xl block mb-2">🍏</span>
+              <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 block mb-1">Turmas 601 e 602</span>
+              <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Biografias & Entrevistas</h4>
+              <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed mb-4">
+                Entrevistas presenciais com áudios e textos gravadas com professores e convidados.
+              </p>
+            </div>
+            <span class="text-xs font-bold text-emerald-600 flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800">
+              <span>Abrir Aba 6º Ano</span>
+              <span>→</span>
+            </span>
+          </div>
+
+          <!-- 7º Ano -->
+          <div 
+            onclick="window.app.switchTab('ano7')"
+            class="bg-white dark:bg-slate-900 rounded-3xl p-6 border-2 border-amber-200 dark:border-amber-900/60 shadow-md hover:shadow-xl hover:border-amber-500 transition-all cursor-pointer group flex flex-col justify-between"
+          >
+            <div>
+              <span class="text-3xl block mb-2">🍊</span>
+              <span class="text-xs font-bold uppercase tracking-wider text-amber-600 block mb-1">Turmas 701 e 702</span>
+              <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Reportagens Locais</h4>
+              <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed mb-4">
+                Telejornal de bancada NEWS e cobertura especial com temas da comunidade escolar.
+              </p>
+            </div>
+            <span class="text-xs font-bold text-amber-600 flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800">
+              <span>Abrir Aba 7º Ano</span>
+              <span>→</span>
+            </span>
+          </div>
+
+          <!-- 8º Ano -->
+          <div 
+            onclick="window.app.switchTab('ano8')"
+            class="bg-white dark:bg-slate-900 rounded-3xl p-6 border-2 border-purple-200 dark:border-purple-900/60 shadow-md hover:shadow-xl hover:border-purple-500 transition-all cursor-pointer group flex flex-col justify-between"
+          >
+            <div>
+              <span class="text-3xl block mb-2">🍇</span>
+              <span class="text-xs font-bold uppercase tracking-wider text-purple-600 block mb-1">Turmas 801 e 802</span>
+              <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Crônicas & Fábulas</h4>
+              <p class="text-slate-600 dark:text-slate-300 text-xs leading-relaxed mb-4">
+                Animações criadas com inteligência artificial, crônicas do cotidiano e performances.
+              </p>
+            </div>
+            <span class="text-xs font-bold text-purple-600 flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800">
+              <span>Abrir Aba 8º Ano</span>
+              <span>→</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ------------------------------------------------------------------------
+         ABA 2: 6º ANO (Turmas 601 e 602) - Biografias e Entrevistas
+         ------------------------------------------------------------------------ -->
+    <section id="tab-ano6" class="hidden animate-fade-in space-y-8">
+      
+      <div class="bg-gradient-to-r from-emerald-500/10 via-teal-500/10 to-emerald-500/5 rounded-3xl p-6 sm:p-8 border border-emerald-200 dark:border-emerald-800">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 mb-2">
+          <span>Turmas 601 e 602</span> • <span>Disciplina PTL</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
+          6º Ano: Biografias e Entrevistas
+        </h2>
+        <p class="text-slate-600 dark:text-slate-300 text-sm mt-2 max-w-3xl leading-relaxed">
+          Nesta aba estão reunidas as produções em áudio, vídeo e texto dos alunos do 6º ano. Os estudantes exercitaram a formulação de roteiros, perguntas abertas e a escuta atenta, registrando histórias de vida e a memória dos profissionais da nossa comunidade escolar.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="ano6-grid">
+        <!-- Injetado dinamicamente via app.js -->
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------------------------
+         ABA 3: 7º ANO (Turmas 701 e 702) - Reportagens
+         ------------------------------------------------------------------------ -->
+    <section id="tab-ano7" class="hidden animate-fade-in space-y-8">
+      
+      <div class="bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-amber-500/5 rounded-3xl p-6 sm:p-8 border border-amber-200 dark:border-amber-800">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300 mb-2">
+          <span>Turmas 701 e 702</span> • <span>Disciplina PTL</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
+          7º Ano: Reportagens e Telejornais
+        </h2>
+        <p class="text-slate-600 dark:text-slate-300 text-sm mt-2 max-w-3xl leading-relaxed">
+          Produções jornalísticas com foco em temas locais de Queimados e do cotidiano da escola. Os estudantes experimentaram a linguagem das câmeras, a apuração dos fatos e a diferença prática entre o relato imediato da notícia e o aprofundamento investigativo da reportagem.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="ano7-grid">
+        <!-- Injetado dinamicamente via app.js -->
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------------------------
+         ABA 4: 8º ANO (Turmas 801 e 802) - Crônicas e Fábulas
+         ------------------------------------------------------------------------ -->
+    <section id="tab-ano8" class="hidden animate-fade-in space-y-8">
+      
+      <div class="bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-purple-500/5 rounded-3xl p-6 sm:p-8 border border-purple-200 dark:border-purple-800">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-purple-100 dark:bg-purple-950 text-purple-800 dark:text-purple-300 mb-2">
+          <span>Turmas 801 e 802</span> • <span>Disciplina PTL</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
+          8º Ano: Crônicas e Fábulas
+        </h2>
+        <p class="text-slate-600 dark:text-slate-300 text-sm mt-2 max-w-3xl leading-relaxed">
+          Nesta aba, a literatura ganha ilustrações, animações digitais e interpretações corporais expressivas. As fábulas reúnem lições de convivência e empatia, enquanto as crônicas retratam com sensibilidade e espírito crítico os acontecimentos do cotidiano juvenil.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="ano8-grid">
+        <!-- Injetado dinamicamente via app.js -->
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------------------------
+         ABA 5: ESPAÇO LÚDICO (Quizzes, Caça-Palavras e Jogos)
+         ------------------------------------------------------------------------ -->
+    <section id="tab-ludico" class="hidden animate-fade-in space-y-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-8">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 mb-2">
+          <span>Gamificação em PTL</span> • <span>Estudo e Diversão</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
+          Espaço Lúdico Interativo
+        </h2>
+        <p class="text-slate-600 dark:text-slate-300 text-sm mt-1">
+          Quizzes, caça-palavras e jogos sobre os conceitos dos gêneros textuais estudados (Biografia, Entrevista, Notícia, Reportagem, Crônica e Fábula).
+        </p>
+
+        <!-- Seletor dos Jogos -->
+        <div class="flex justify-center mt-6">
+          <div class="bg-white dark:bg-slate-900 p-1 rounded-2xl border border-slate-200 dark:border-slate-800 flex gap-1 shadow-sm">
+            <button 
+              id="game-btn-quiz"
+              onclick="switchGame('quiz')"
+              class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-emerald-600 text-white shadow-sm transition cursor-pointer"
+            >
+              🎯 Quiz dos Gêneros
+            </button>
+            <button 
+              id="game-btn-ws"
+              onclick="switchGame('ws')"
+              class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-slate-600 dark:text-slate-300 hover:text-emerald-600 transition cursor-pointer"
+            >
+              🔍 Caça-Palavras
+            </button>
+            <button 
+              id="game-btn-mem"
+              onclick="switchGame('mem')"
+              class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-slate-600 dark:text-slate-300 hover:text-emerald-600 transition cursor-pointer"
+            >
+              🃏 Jogo da Memória
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Telas dos Jogos -->
+      <div id="game-view-quiz">
+        <div id="quiz-container" class="max-w-3xl mx-auto"></div>
+      </div>
+
+      <div id="game-view-ws" class="hidden">
+        <div id="wordsearch-container" class="max-w-4xl mx-auto"></div>
+      </div>
+
+      <div id="game-view-mem" class="hidden">
+        <div id="memory-container" class="max-w-3xl mx-auto"></div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       RODAPÉ
+       ========================================================================== -->
+  <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-8 transition-colors mt-auto relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-xs text-slate-500">
+      <div>
+        <p class="font-bold text-slate-700 dark:text-slate-300">
+          Frutos da Leitura • Disciplina PTL 2026
+        </p>
+        <p class="mt-0.5">
+          Prefeitura Municipal de Queimados • Secretaria de Educação • Plataforma Árvore
+        </p>
+      </div>
+
+      <div class="flex items-center gap-3 font-semibold">
+        <button onclick="window.app.switchTab('home')" class="hover:text-emerald-600 transition cursor-pointer">Início & Árvore</button>
+        <span>•</span>
+        <button onclick="window.app.switchTab('ano6')" class="hover:text-emerald-600 transition cursor-pointer">6º Ano</button>
+        <span>•</span>
+        <button onclick="window.app.switchTab('ano7')" class="hover:text-emerald-600 transition cursor-pointer">7º Ano</button>
+        <span>•</span>
+        <button onclick="window.app.switchTab('ano8')" class="hover:text-emerald-600 transition cursor-pointer">8º Ano</button>
+        <span>•</span>
+        <button onclick="window.app.switchTab('ludico')" class="hover:text-emerald-600 transition cursor-pointer">Espaço Lúdico</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       MODAL DE VÍDEO E PRODUÇÃO TEXTUAL
+       ========================================================================== -->
+  <div id="work-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 backdrop-blur-md transition-opacity">
+    <div class="relative w-full max-w-5xl bg-white dark:bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800 animate-scale-up">
+      <!-- Botão Fechar -->
+      <button 
+        onclick="window.app.closeModal()" 
+        class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center transition cursor-pointer"
+        title="Fechar modal (Esc)"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <!-- Conteúdo do Modal Injetado via app.js -->
+      <div id="work-modal-content"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="games.js"></script>
+  <script src="app.js"></script>
+
+  <!-- Script de Alternância Interna dos Jogos -->
+  <script>
+    function switchGame(type) {
+      const bQuiz = document.getElementById('game-btn-quiz');
+      const bWs = document.getElementById('game-btn-ws');
+      const bMem = document.getElementById('game-btn-mem');
+
+      const vQuiz = document.getElementById('game-view-quiz');
+      const vWs = document.getElementById('game-view-ws');
+      const vMem = document.getElementById('game-view-mem');
+
+      [bQuiz, bWs, bMem].forEach(b => {
+        b.className = "px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-slate-600 dark:text-slate-300 hover:text-emerald-600 transition cursor-pointer";
+      });
+
+      vQuiz.classList.add('hidden');
+      vWs.classList.add('hidden');
+      vMem.classList.add('hidden');
+
+      if (type === 'quiz') {
+        bQuiz.className = "px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-emerald-600 text-white shadow-sm transition cursor-pointer";
+        vQuiz.classList.remove('hidden');
+        window.quiz.start();
+      } else if (type === 'ws') {
+        bWs.className = "px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-emerald-600 text-white shadow-sm transition cursor-pointer";
+        vWs.classList.remove('hidden');
+        window.wordSearch.start();
+      } else if (type === 'mem') {
+        bMem.className = "px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-emerald-600 text-white shadow-sm transition cursor-pointer";
+        vMem.classList.remove('hidden');
+        window.memoryGame.start();
+      }
+    }
+  </script>
+</body>
+</html>

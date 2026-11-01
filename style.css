@@ -1,0 +1,218 @@
+/* ==========================================================================
+   Frutos da Leitura - Estilos Customizados & Animações
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  --font-display: 'Outfit', sans-serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+}
+
+/* Animações de Frutos Pendurados Balançando Suavemente ao Vento */
+@keyframes fruitSway {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(4deg);
+  }
+  75% {
+    transform: rotate(-4deg);
+  }
+}
+
+@keyframes fruitPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 12px rgba(16, 185, 129, 0);
+  }
+}
+
+.fruit-sway {
+  transform-origin: top center;
+  animation: fruitSway 4s ease-in-out infinite;
+}
+
+.fruit-sway:nth-child(2n) {
+  animation-duration: 4.8s;
+  animation-delay: -1.2s;
+}
+
+.fruit-sway:nth-child(3n) {
+  animation-duration: 5.4s;
+  animation-delay: -2.3s;
+}
+
+.fruit-pulse {
+  animation: fruitPulse 2.5s infinite;
+}
+
+/* Efeito de Folhas Flutuantes ao Fundo */
+@keyframes floatLeaf {
+  0% {
+    transform: translateY(0) rotate(0deg) translateX(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.7;
+  }
+  80% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg) translateX(50px);
+    opacity: 0;
+  }
+}
+
+.floating-leaf {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  animation: floatLeaf 14s linear infinite;
+}
+
+/* Efeito Flip de Cartas 3D */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+@keyframes flipIn {
+  from {
+    transform: rotateY(90deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+.animate-flip-in {
+  animation: flipIn 0.35s ease-out forwards;
+}
+
+/* Modais e Escala */
+@keyframes scaleUp {
+  from {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Estilização da Árvore Interativa SVG */
+.tree-branch {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawBranch 2.5s ease-out forwards;
+}
+
+@keyframes drawBranch {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.tree-node-fruit {
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.tree-node-fruit:hover {
+  transform: scale(1.25);
+  filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.6));
+}
+
+/* Scrollbar Customizada */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(16, 185, 129, 0.25);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(16, 185, 129, 0.45);
+}
+
+/* ==========================================================================
+   ESTILOS DE IMPRESSÃO (Folhas A4 para Plastificação e Recorte)
+   ========================================================================== */
+@media print {
+  /* Ocultar navegação, botões e elementos desnecessários na impressão */
+  header, nav, footer, #hero-section, #tree-section, #games-section, #guestbook-section, #pedagogy-section, .no-print, button, #quiz-container, #wordsearch-container, #memory-container {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11pt;
+  }
+
+  #qr-studio-section {
+    display: block !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  #qr-studio-container {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+
+  #qr-fruit-cards-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 15mm !important;
+    page-break-inside: auto;
+  }
+
+  .fruit-print-card {
+    border: 2px dashed #4b5563 !important;
+    border-radius: 20px !important;
+    padding: 12mm 8mm !important;
+    page-break-inside: avoid !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+  }
+
+  .fruit-print-card::after {
+    content: "✂ Recorte na linha pontilhada e plastifique para a Árvore do Conhecimento";
+    display: block;
+    margin-top: 8px;
+    font-size: 8pt;
+    color: #6b7280;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+}
