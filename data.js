@@ -1,6 +1,8 @@
 /**
  * Base de Dados do Projeto Pedagógico:
  * "Frutos da Leitura: Da Raiz escrita à Árvore digital: Estudo e diversão na disciplina PTL"
+ * Unidade Escolar: E. M. Professor Joaquim de Freitas
+ * Autores: Prof.ª Kelly Giri & Turmas 601 a 802
  * Município de Queimados - RJ
  * Tema: "Árvore: afeto que aproxima, tecnologia que ensina, educação que transforma"
  */
@@ -8,11 +10,46 @@
 const PROJECT_INFO = {
   title: "Frutos da Leitura",
   subtitle: "Da Raiz escrita à Árvore digital: Estudo e diversão na disciplina PTL",
+  school: "E. M. Professor Joaquim de Freitas",
+  authors: "Prof.ª Kelly Giri & Turmas 601 a 802",
   city: "Queimados - RJ",
   theme: "Árvore: afeto que aproxima, tecnologia que ensina, educação que transforma",
   discipline: "PTL (Produção Textual e Leitura)",
   classes: ["601", "602", "701", "702", "801", "802"],
   partnerPlatform: "Plataforma de Leitura Digital Árvore",
+  contextOrChallenge: "A cultura da leitura e da escrita no cotidiano escolar precisava romper os muros da sala de aula e o formato da tarefa tradicional avaliativa. O desafio foi articular o letramento literário (Plataforma Árvore) ao protagonismo discente e ao tema do município, integrando sustentabilidade e tecnologia para que os saberes produzidos se tornassem o fruto visível de um percurso formativo.",
+  objective: "Consolidar o aprendizado dos gêneros trabalhados (Biografia, Entrevista, Notícia, Reportagem, Crônica e Fábula); valorizar a autoria discente por meio da publicação digital e física dos trabalhos; e estimular o pensamento computacional e o letramento digital em consonância com as diretrizes da nossa rede de ensino.",
+  journeyStages: [
+    {
+      num: 1,
+      title: "Curadoria",
+      desc: "Revisão ortográfica e textual dos melhores trabalhos produzidos pelos grupos das turmas 601 a 802, articulados às leituras na Plataforma Árvore.",
+      icon: "📚"
+    },
+    {
+      num: 2,
+      title: "Oficina",
+      desc: "Oficinas práticas de papel reciclado para confecção de livretos físicos, estruturação de roteiros, pautas de reportagem e uso de ferramentas criativas.",
+      icon: "✂️"
+    },
+    {
+      num: 3,
+      title: "Edição",
+      desc: "Gravação e pós-produção audiovisual (textos escritos, podcasts de entrevistas, vídeos animados de fábulas com IA e reportagens em vídeo).",
+      icon: "🎬"
+    },
+    {
+      num: 4,
+      title: "Mostra",
+      desc: "Instalação cenográfica da Árvore física com QR Codes de material reciclado no pátio da escola e lançamento da Vitrine Virtual com os alunos atuando como mediadores tecnológicos.",
+      icon: "🌳"
+    }
+  ],
+  learningResults: [
+    "Expressiva aprendizagem e engajamento ativo de todas as turmas (601 a 802).",
+    "Produção de 11 mídias audiovisuais completas e publicações físicas artesanais com capas de papel reciclado.",
+    "Desenvolvimento de competências comunicativas, autonomia, criticidade e domínio de ferramentas digitais."
+  ],
   generalObjective: "Expor à comunidade escolar a produção textual dos alunos integrada a recursos tecnológicos, culminando em uma experiência interativa física e virtual.",
   specificObjectives: [
     "Consolidar o aprendizado dos gêneros trabalhados (Biografia, Entrevista, Notícia, Reportagem, Crônica e Fábula).",
@@ -34,10 +71,10 @@ const WORKS_DATA = [
     thumbnail: "assets/thumbnails/VID-20261031-WA0026.jpg",
     tags: ["Animação Digital", "Moral da História", "Empatia", "8º Ano"],
     badgeColor: "purple",
-    fruitColor: "#a855f7", // Violeta
+    fruitColor: "#a855f7",
     summary: "Reinterpretação contemporânea da fábula clássica produzida pelos estudantes com auxílio de inteligência artificial generativa e edição criativa. Narra a história de um carneirinho que descobre que aprender é o caminho para transformar o mundo.",
     pedagogicalFocus: "Construção de personagens alegóricos, síntese narrativa e a elaboração da moral da história em formato audiovisual moderno.",
-    authors: "Turma 801 - Equipe Criativa de Fábulas"
+    authors: "E. M. Prof. Joaquim de Freitas • Turma 801 (Prof.ª Kelly Giri)"
   },
   {
     id: "trab-02",
@@ -51,10 +88,10 @@ const WORKS_DATA = [
     thumbnail: "assets/thumbnails/VID-20261031-WA0029.jpg",
     tags: ["Entrevista", "Diálogo", "Professores", "6º Ano"],
     badgeColor: "emerald",
-    fruitColor: "#10b981", // Verde Esmeralda
+    fruitColor: "#10b981",
     summary: "Os estudantes do 6º ano colocam em prática as técnicas de entrevista jornalística, conversando abertamente com o professor sobre sua trajetória, vocação pedagógica e o poder que a leitura tem de aproximar pessoas.",
     pedagogicalFocus: "Elaboração de pauta prévia, condução de perguntas abertas, postura de escuta ativa e transcrição/edição das falas mais impactantes.",
-    authors: "Turma 601 - Repórteres do 6º Ano"
+    authors: "E. M. Prof. Joaquim de Freitas • Turma 601 (Prof.ª Kelly Giri)"
   },
   {
     id: "trab-03",
@@ -68,10 +105,10 @@ const WORKS_DATA = [
     thumbnail: "assets/thumbnails/VID-20261031-WA0030.jpg",
     tags: ["Breaking News", "Telejornal", "Mobilidade", "7º Ano"],
     badgeColor: "amber",
-    fruitColor: "#f59e0b", // Âmbar Dourado
+    fruitColor: "#f59e0b",
     summary: "Reportagem com formato dinâmico de telejornal investigativo. A aluna âncora apresenta a temática 'Rodas sobre Rodas', refletindo sobre mobilidade, trânsito urbano e a presença dos meios de transporte no cotidiano de Queimados.",
     pedagogicalFocus: "Diferenciação prática entre o lead jornalístico imediato (Notícia) e o aprofundamento investigativo (Reportagem com viés comunitário).",
-    authors: "Turma 701 - Equipe do Plantão Escolar"
+    authors: "E. M. Prof. Joaquim de Freitas • Turma 701 (Prof.ª Kelly Giri)"
   },
   {
     id: "trab-04",
@@ -88,7 +125,7 @@ const WORKS_DATA = [
     fruitColor: "#f59e0b",
     summary: "Duas estudantes assumem a bancada de um telejornal completo no estúdio virtual NEWS, noticiando projetos da escola, eventos esportivos e culturais, além de reflexões sobre a convivência saudável no ambiente escolar.",
     pedagogicalFocus: "Trabalho em equipe, oratória em frente às câmeras, hierarquização de notícias e linguagem formal e acessível.",
-    authors: "Turma 702 - Redação Jornal PTL"
+    authors: "E. M. Prof. Joaquim de Freitas • Turma 702 (Prof.ª Kelly Giri)"
   },
   {
     id: "trab-05",
@@ -105,7 +142,7 @@ const WORKS_DATA = [
     fruitColor: "#10b981",
     summary: "Gravação intimista que resgata memórias biográficas de pessoas inspiradoras da comunidade, destacando as lutas, a importância dos estudos e os valores transmitidos entre gerações.",
     pedagogicalFocus: "Construção da linha do tempo biográfica a partir de relatos orais, contextualizando a história individual no tecido social.",
-    authors: "Turma 602 - Coletivo Raízes Biográficas"
+    authors: "E. M. Prof. Joaquim de Freitas • Turma 602 (Prof.ª Kelly Giri)"
   },
   {
     id: "trab-06",
@@ -122,7 +159,7 @@ const WORKS_DATA = [
     fruitColor: "#a855f7",
     summary: "Monólogo reflexivo no formato de crônica audiovisual. O estudante expõe com sinceridade pensamentos sobre o crescimento, os anseios de sua geração e como a leitura amplia horizontes.",
     pedagogicalFocus: "A observação perspicaz do cotidiano, tom poético-crítico e a autoria discente em primeira pessoa.",
-    authors: "Turma 802 - Vozes da Crônica"
+    authors: "E. M. Prof. Joaquim de Freitas • Turma 802 (Prof.ª Kelly Giri)"
   },
   {
     id: "trab-07",
@@ -139,7 +176,7 @@ const WORKS_DATA = [
     fruitColor: "#10b981",
     summary: "Estudante do 6º ano sai a campo com microfone para entrevistar Dona Silva em sua residência, explorando costumes, histórias do bairro e a visão de uma moradora sobre a educação dos jovens.",
     pedagogicalFocus: "Pesquisa de campo, conexão da escola com a comunidade de Queimados e valorização dos saberes populares.",
-    authors: "Turma 601 - Grupo Repórter de Bairro"
+    authors: "E. M. Prof. Joaquim de Freitas • Turma 601 (Prof.ª Kelly Giri)"
   },
   {
     id: "trab-08",
@@ -156,7 +193,7 @@ const WORKS_DATA = [
     fruitColor: "#a855f7",
     summary: "Aluna vestindo o uniforme da Rede Municipal de Ensino de Queimados entrega uma performance viva de narração de fábula, demonstrando expressividade vocal, pontuação e paixão pela literatura oral.",
     pedagogicalFocus: "A expressividade na leitura em voz alta, dicção, pontuação dramática e transmissão dos valores éticos das fábulas.",
-    authors: "Turma 801 - Coletivo Contadores de Histórias"
+    authors: "E. M. Prof. Joaquim de Freitas • Turma 801 (Prof.ª Kelly Giri)"
   },
   {
     id: "trab-09",
@@ -173,7 +210,7 @@ const WORKS_DATA = [
     fruitColor: "#a855f7",
     summary: "Vídeo com estética artesanal e digital inspirada em scrapbooks escolares ('Esperamos que gostem'), combinando ilustrações delicadas, mensagens de acolhimento e crônicas sobre amizade e aprendizado.",
     pedagogicalFocus: "Linguagem multissemiótica, integrando texto verbal, desenho, colagem digital e trilha sonora afetiva.",
-    authors: "Turma 802 - Atelier Digital PTL"
+    authors: "E. M. Prof. Joaquim de Freitas • Turma 802 (Prof.ª Kelly Giri)"
   },
   {
     id: "trab-10",
@@ -190,7 +227,7 @@ const WORKS_DATA = [
     fruitColor: "#10b981",
     summary: "O aluno repórter, com roteiro impresso em mãos, conduz uma rica entrevista com o professor Cláudio de Souza Soares, revelando o percurso acadêmico do mestre e seu entusiasmo em ensinar na rede pública de Queimados.",
     pedagogicalFocus: "Elaboração de perguntas encadeadas, transição entre tópicos e a biografia como reconhecimento das figuras educativas.",
-    authors: "Turma 602 - Jovens Entrevistadores"
+    authors: "E. M. Prof. Joaquim de Freitas • Turma 602 (Prof.ª Kelly Giri)"
   },
   {
     id: "trab-11",
@@ -207,7 +244,7 @@ const WORKS_DATA = [
     fruitColor: "#10b981",
     summary: "Entrevista aprofundada gravada no gabinete da coordenação/diretoria com a educadora Cíntia Batista. A gestora compartilha os desafios diários da escola, a importância do vínculo família-escola e o orgulho do projeto da feira de ciências.",
     pedagogicalFocus: "Entrevista formal de perfil, respeito ao interlocutor institucional e consolidação do letramento midiático dos alunos.",
-    authors: "Turmas 601 e 602 - Projeto Imprensa Mirim"
+    authors: "E. M. Prof. Joaquim de Freitas • Turmas 601 e 602 (Prof.ª Kelly Giri)"
   }
 ];
 

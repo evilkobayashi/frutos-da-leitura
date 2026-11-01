@@ -30,8 +30,18 @@ class VitrineApp {
     });
 
     window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') this.closeModal();
+      if (e.key === 'Escape') {
+        this.closeModal();
+        this.closeBannerModal();
+      }
     });
+
+    const bannerModal = document.getElementById('banner-modal');
+    if (bannerModal) {
+      bannerModal.addEventListener('click', (e) => {
+        if (e.target === bannerModal) this.closeBannerModal();
+      });
+    }
   }
 
   handleUrlHash() {
@@ -416,6 +426,22 @@ class VitrineApp {
     modal.classList.add('hidden');
     document.body.classList.remove('overflow-hidden');
     this.currentWorkModal = null;
+  }
+
+  openBannerModal() {
+    const modal = document.getElementById('banner-modal');
+    if (modal) {
+      modal.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+    }
+  }
+
+  closeBannerModal() {
+    const modal = document.getElementById('banner-modal');
+    if (modal) {
+      modal.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
   }
 
   navigateWork(direction) {
