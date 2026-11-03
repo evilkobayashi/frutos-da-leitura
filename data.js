@@ -47,7 +47,7 @@ const PROJECT_INFO = {
   ],
   learningResults: [
     "Expressiva aprendizagem e engajamento ativo de todas as turmas (601 a 802).",
-    "Produção de 11 mídias audiovisuais completas e publicações físicas artesanais com capas de papel reciclado.",
+    "Produção de 15 mídias audiovisuais completas e publicações físicas artesanais com capas de papel reciclado.",
     "Desenvolvimento de competências comunicativas, autonomia, criticidade e domínio de ferramentas digitais."
   ],
   generalObjective: "Expor à comunidade escolar a produção textual dos alunos integrada a recursos tecnológicos, culminando em uma experiência interativa física e virtual.",
@@ -245,6 +245,74 @@ const WORKS_DATA = [
     summary: "Entrevista aprofundada gravada no gabinete da coordenação/diretoria com a educadora Cíntia Batista. A gestora compartilha os desafios diários da escola, a importância do vínculo família-escola e o orgulho do projeto da feira de ciências.",
     pedagogicalFocus: "Entrevista formal de perfil, respeito ao interlocutor institucional e consolidação do letramento midiático dos alunos.",
     authors: "E. M. Prof. Joaquim de Freitas • Turmas 601 e 602 (Prof.ª Kelly Giri)"
+  },
+  {
+    id: "trab-12",
+    file: "VID-20261102-WA0000.mp4",
+    title: "Plantão PTL: Inclusão e Dificuldades dos Alunos Surdos",
+    grade: "7º Ano",
+    classes: ["702"],
+    genre: "Reportagem & Entrevista",
+    genreType: "reportagem",
+    duration: "3m 14s",
+    thumbnail: "assets/thumbnails/VID-20261102-WA0000.jpg",
+    tags: ["Inclusão", "Acessibilidade", "Breaking News", "7º Ano"],
+    badgeColor: "amber",
+    fruitColor: "#f59e0b",
+    summary: "Reportagem especial em formato de telejornal animado e entrevista de campo sobre a inclusão e os desafios enfrentados pelos alunos surdos no cotidiano escolar e comunitário.",
+    pedagogicalFocus: "Jornalismo investigativo com temática de empatia, acessibilidade e direitos humanos, combinando animação autoral e entrevistas reais.",
+    authors: "E. M. Prof. Joaquim de Freitas • Turma 702 (Isabella, Luana e Eloisa • Prof.ª Kelly Giri)"
+  },
+  {
+    id: "trab-13",
+    file: "VID-20261103-WA0024.mp4",
+    title: "O Lugar na Fila: Respeito Gera Harmonia",
+    grade: "8º Ano",
+    classes: ["801"],
+    genre: "Fábula Animada",
+    genreType: "fabula",
+    duration: "1m 23s",
+    thumbnail: "assets/thumbnails/VID-20261103-WA0024.jpg",
+    tags: ["Fábula", "Respeito", "Convivência", "8º Ano"],
+    badgeColor: "purple",
+    fruitColor: "#a855f7",
+    summary: "Na floresta, os animais aguardam pacientemente na fila das frutas até que a pressa coloca à prova a convivência do grupo, ensinando que respeitar o lugar do outro é respeitar a todos.",
+    pedagogicalFocus: "Construção de narrativa alegórica em animação 3D com moral ética explícita voltada à cidadania e harmonia coletiva.",
+    authors: "E. M. Prof. Joaquim de Freitas • Turma 801 (Prof.ª Kelly Giri)"
+  },
+  {
+    id: "trab-14",
+    file: "VID-20261103-WA0025.mp4",
+    title: "A Fábula da Capivara e o Raposo: Além das Aparências",
+    grade: "8º Ano",
+    classes: ["801", "802"],
+    genre: "Fábula Ilustrada",
+    genreType: "fabula",
+    duration: "0m 54s",
+    thumbnail: "assets/thumbnails/VID-20261103-WA0025.jpg",
+    tags: ["Empatia", "Caráter", "Fábula", "8º Ano"],
+    badgeColor: "purple",
+    fruitColor: "#a855f7",
+    summary: "Narrativa ilustrada que acompanha uma capivara humilde diante do julgamento apressado de um raposo comerciante, revelando que o verdadeiro valor está no caráter e no respeito ao próximo.",
+    pedagogicalFocus: "Combate ao preconceito por meio da literatura fabular, roteirização visual e reflexão moral sobre empatia e humildade.",
+    authors: "E. M. Prof. Joaquim de Freitas • 8º Ano (Alunas Maria Hellena e Nicole • Prof.ª Kelly Giri)"
+  },
+  {
+    id: "trab-15",
+    file: "VID-20261103-WA0026.mp4",
+    title: "O Lobo, o Rei Leão e o Rio Poluído: A União Faz a Força",
+    grade: "8º Ano",
+    classes: ["801", "802"],
+    genre: "Fábula Ambiental",
+    genreType: "fabula",
+    duration: "0m 48s",
+    thumbnail: "assets/thumbnails/VID-20261103-WA0026.jpg",
+    tags: ["Meio Ambiente", "União", "Sustentabilidade", "8º Ano"],
+    badgeColor: "purple",
+    fruitColor: "#a855f7",
+    summary: "Diante de um rio tomado pela poluição que ameaça toda a alcateia e a floresta, o lobo e o Rei Leão unem forças para restaurar a natureza, provando que a cooperação transforma o mundo.",
+    pedagogicalFocus: "Articulação entre o gênero fábula, recursos de inteligência artificial generativa e consciência socioambiental.",
+    authors: "E. M. Prof. Joaquim de Freitas • 8º Ano (Prof.ª Kelly Giri)"
   }
 ];
 

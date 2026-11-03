@@ -119,17 +119,21 @@ class VitrineApp {
     if (!treeContainer) return;
 
     const fruitPositions = [
-      { id: "trab-01", x: 260, y: 155, grade: "8º Ano" },
-      { id: "trab-02", x: 440, y: 140, grade: "6º Ano" },
-      { id: "trab-03", x: 190, y: 220, grade: "7º Ano" },
-      { id: "trab-04", x: 580, y: 210, grade: "7º Ano" },
-      { id: "trab-05", x: 330, y: 250, grade: "6º Ano" },
-      { id: "trab-06", x: 490, y: 260, grade: "8º Ano" },
+      { id: "trab-01", x: 255, y: 150, grade: "8º Ano" },
+      { id: "trab-02", x: 440, y: 135, grade: "6º Ano" },
+      { id: "trab-13", x: 350, y: 120, grade: "8º Ano" },
+      { id: "trab-14", x: 535, y: 155, grade: "8º Ano" },
+      { id: "trab-03", x: 185, y: 215, grade: "7º Ano" },
+      { id: "trab-12", x: 325, y: 195, grade: "7º Ano" },
+      { id: "trab-15", x: 465, y: 205, grade: "8º Ano" },
+      { id: "trab-04", x: 590, y: 215, grade: "7º Ano" },
+      { id: "trab-05", x: 260, y: 265, grade: "6º Ano" },
+      { id: "trab-06", x: 395, y: 260, grade: "8º Ano" },
       { id: "trab-07", x: 150, y: 310, grade: "6º Ano" },
-      { id: "trab-08", x: 640, y: 300, grade: "8º Ano" },
-      { id: "trab-09", x: 270, y: 340, grade: "8º Ano" },
-      { id: "trab-10", x: 410, y: 330, grade: "6º Ano" },
-      { id: "trab-11", x: 530, y: 350, grade: "6º Ano" }
+      { id: "trab-08", x: 645, y: 300, grade: "8º Ano" },
+      { id: "trab-09", x: 245, y: 345, grade: "8º Ano" },
+      { id: "trab-10", x: 385, y: 335, grade: "6º Ano" },
+      { id: "trab-11", x: 525, y: 345, grade: "6º Ano" }
     ];
 
     treeContainer.innerHTML = `

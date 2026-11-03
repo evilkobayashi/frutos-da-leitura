@@ -170,7 +170,7 @@ class FruitQRStudio {
 
         <!-- Botão Interativo -->
         <button 
-          onclick="window.app.openWorkModal('${w.id}')"
+          onclick="window.app.openModal('${w.id}')"
           class="w-full py-2.5 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 bg-white/80 dark:bg-slate-800/80 hover:bg-white dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700 transition cursor-pointer flex items-center justify-center gap-1.5"
         >
           <span>Abrir Trabalho Virtual</span>
